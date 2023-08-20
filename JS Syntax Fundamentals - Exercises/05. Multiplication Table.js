@@ -6,4 +6,3 @@ function multiplication(number) {
     console.log(result.join("\n"))
 }
 
-multiplication(5)
