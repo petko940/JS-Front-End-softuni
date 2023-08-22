@@ -1,9 +1,9 @@
-function names(names) {
-    names.sort(); 
-  
-    for (let i = 0; i < names.length - 1; i++) {
-      console.log(`${i + 1}.${names[i]}`);
+function listNames(names) {
+    names.sort((a, b) => a.localeCompare(b))
+    
+    for (let i = 0; i < names.length; i++) {
+        console.log(`${i + 1}.${names[i]}`);
     }
-  }
+}
 
-console.log(names(["John", "Bob", "Christina", "Ema"]));
+
