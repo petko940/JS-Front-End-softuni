@@ -10,7 +10,6 @@ function numberModification (number) {
     else {
         return number;       
     }
-
 }
 
 console.log(numberModification(101))
