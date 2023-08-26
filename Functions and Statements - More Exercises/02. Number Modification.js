@@ -13,3 +13,4 @@ function numberModification (number) {
 }
 
 console.log(numberModification(101))
+
