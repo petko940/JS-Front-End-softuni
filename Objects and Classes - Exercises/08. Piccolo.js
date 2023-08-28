@@ -3,9 +3,9 @@ function piccolo(array) {
     for (let arr of array) {
         let direction = arr.split(', ')[0];
         let carNumber = arr.split(', ')[1];
-        if (direction == 'IN') {
+        if (direction === 'IN' && !list.includes(carNumber)) {
             list.push(carNumber);
-        } else {
+        } else if (direction === 'OUT' && list.includes(carNumber)) {
             list = list.filter(x => x != carNumber);
         }
     }
@@ -13,22 +13,7 @@ function piccolo(array) {
         return "Parking Lot is Empty";
     }
 
-    list.sort();
+    list.sort((a, b) => a.localeCompare(b));
     return list.join('\n');
 }
 
-console.log(piccolo(['IN, CA2844AA',
-    'IN, CA1234TA',
-    'OUT, CA2844AA',
-    'IN, CA9999TT',
-    'IN, CA2866HI',
-    'OUT, CA1234TA',
-    'IN, CA2844AA',
-    'OUT, CA2866HI',
-    'IN, CA9876HH',
-    'IN, CA2822UU']))
-
-console.log(piccolo(['IN, CA2844AA',
-    'IN, CA1234TA',
-    'OUT, CA2844AA',
-    'OUT, CA1234TA']))
