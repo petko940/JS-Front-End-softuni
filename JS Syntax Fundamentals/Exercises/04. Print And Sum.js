@@ -8,4 +8,5 @@ function printAndSum(start, end) {
 
     console.log(numbers.join(" "));
     console.log(`Sum: ${sum}`);
+    
 }
