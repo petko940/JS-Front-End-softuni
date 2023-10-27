@@ -1,18 +1,17 @@
 function age(number) {
     let result;
-    if (number >= 0 && number <= 2) {
+    if (0 <= age <= 2) {
         result = "baby";
-    } else if (number >= 3 && number <= 13) {
+    } else if (3 <= number <= 13) {
         result = "child";
-    } else if (number >= 14 && number <= 19) {
+    } else if (14 <= number <= 19) {
         return "teenager";
-    } else if (number >= 20 && number <= 65) {
+    } else if (20 <= number <= 65) {
         result = "adult";
-    } else if (number >= 66) {
+    } else if (66 <= number) {
         result = "elder";
     } else {
         result = "out of bounds";
     }
     console.log(result);
 }
-
