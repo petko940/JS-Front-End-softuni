@@ -6,5 +6,4 @@ function wordsUppercase(text) {
         result.push(txt[i].toUpperCase());
     }
     return result.join(', ');
-
 }
