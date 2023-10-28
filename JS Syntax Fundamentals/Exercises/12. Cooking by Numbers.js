@@ -11,5 +11,6 @@ function cookingByNumbers(num, ...args) {
         console.log(operations[args[i]](number));
         number = operations[args[i]](number);
     }
+    
 }
 
