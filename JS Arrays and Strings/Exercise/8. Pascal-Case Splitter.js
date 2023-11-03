@@ -4,4 +4,3 @@ function pascalCaseSplitter(string) {
     console.log(match.join(', '));
 }
 
-pascalCaseSplitter('SplitMeIfYouCanHaHaYouCantOrYouCan')
