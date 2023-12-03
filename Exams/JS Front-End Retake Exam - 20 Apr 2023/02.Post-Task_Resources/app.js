@@ -89,5 +89,5 @@ function solve() {
         uploadedList.appendChild(li);
     }
 
-
+    
 }
