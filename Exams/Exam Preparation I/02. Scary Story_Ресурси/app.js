@@ -23,23 +23,25 @@ function solve() {
         const inputs = Array.from(document.querySelectorAll('input'));
         const textArea = document.getElementById('story');
 
-        for (const input of inputs) {
-            if (input.id === 'form-btn') {
-                input.value = 'Publish';
-            } else if (input.value.trim() === '') {  // Trim whitespace and check for emptiness
-                return;
-            }
+        const firstName = document.getElementById('first-name');
+        const lastName = document.getElementById('last-name');
+        const age = document.getElementById('age');
+        const storyTitle = document.getElementById('story-title');
+        const genre = document.getElementById('genre');
+
+        if (firstName.value.trim() === '' || lastName.value.trim() === '' || age.value.trim() === '' || storyTitle.value.trim() === '') {
+            return;
         }
-        
+
         if (textArea.value.trim() === '') {
             return;
         }
 
-        data['first-name'] = inputs[0].value;
-        data['last-name'] = inputs[1].value;
-        data['age'] = inputs[2].value;
-        data['story-title'] = inputs[3].value;
-        data['genre'] = inputs[4].value;
+        data['first-name'] = firstName.value;
+        data['last-name'] = lastName.value;
+        data['age'] = age.value;
+        data['story-title'] = storyTitle.value;
+        data['genre'] = genre.value;
         data['story'] = textArea.value;
 
 
@@ -65,17 +67,17 @@ function solve() {
         buttonDelete.className = 'delete-btn';
         buttonDelete.addEventListener('click', deleteStory);
 
-        h4.textContent = `Name: ${inputs[0].value} ${inputs[1].value}`;
-        p1.textContent = `Age: ${inputs[2].value}`;
-        p2.textContent = `Title: ${inputs[3].value}`;
-        p3.textContent = `Genre: ${inputs[4].value}`;
+        h4.textContent = `Name: ${firstName.value} ${lastName.value}`;
+        p1.textContent = `Age: ${age.value}`;
+        p2.textContent = `Title: ${storyTitle.value}`;
+        p3.textContent = `Genre: ${genre.value}`;
         p4.textContent = textArea.value;
 
         buttonSave.textContent = 'Save Story';
         buttonEdit.textContent = 'Edit Story';
         buttonDelete.textContent = 'Delete';
 
-
+        // article.append(h4, p1, p2, p3, p4);
         article.appendChild(h4);
         article.appendChild(p1);
         article.appendChild(p2);
@@ -91,15 +93,13 @@ function solve() {
 
         publishButton.disabled = true;
 
-        for (const input of inputs) {
-            if (input.id === 'form-btn') {
-                continue;
-            }
-            input.value = '';
-        }
-
+        firstName.value = '';
+        lastName.value = '';
+        age.value = '';
+        storyTitle.value = '';
+        genre.value = '';
         textArea.value = '';
-        
+
     }
 
     function edit(e) {
@@ -108,20 +108,24 @@ function solve() {
         const li = e.target.parentElement;
         li.remove();
 
-        const inputs = Array.from(document.querySelectorAll('input'));
-        for (const input of inputs) {
-            if (input.id === 'form-btn') {
-                continue;
-            }
-            input.value = data[input.id];
-        }
+        const firstName = document.getElementById('first-name');
+        const lastName = document.getElementById('last-name');
+        const age = document.getElementById('age');
+        const storyTitle = document.getElementById('story-title');
+        const genre = document.getElementById('genre');
+
+        firstName.value = data['first-name'];
+        lastName.value = data['last-name'];
+        age.value = data['age'];
+        storyTitle.value = data['story-title'];
+        genre.value = data['genre'];
 
         const textArea = document.getElementById('story');
         textArea.value = data['story'];
 
     }
 
-    function save(e) {
+    function save() {
         const divMain = document.getElementById('main');
         divMain.innerHTML = '';
 
